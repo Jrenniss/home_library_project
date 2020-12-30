@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//Navigate from here to the component pages
 export class Index extends React.Component{
     render(){
         return(

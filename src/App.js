@@ -5,6 +5,7 @@ import { Component } from 'react';
 import { Index } from './components/index';
 import { Library } from './components/library';
 import { AddBook } from './components/addBook';
+import { UpdateBook } from './components/updateBook';
 //Browser
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //Bootstrap Additions
@@ -20,6 +21,7 @@ class App extends Component {
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">My Home Library</Navbar.Brand>
             <Nav className="mr-auto">
+              {/*Links to each Component Page */}
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/library">Library</Nav.Link>
               <Nav.Link href="/addBook">Add Book</Nav.Link>
@@ -31,6 +33,7 @@ class App extends Component {
             <Route path='/' component={Index} exact></Route>
             <Route path='/library' component={Library} exact></Route>
             <Route path='/addBook' component={AddBook} exact></Route>
+            <Route path='/updateBook/:id' component={UpdateBook} exact></Route>
           </Switch>
         </div>
       </Router>
