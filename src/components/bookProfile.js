@@ -37,13 +37,18 @@ export class BookProfile extends React.Component {
                 {/*The content of each bookProfile is desplayed as requested, BookTitle, Author and Genre */}
                 <Card>
                     {/*Card Holds Title in the Card Header. Year and Poster are held in the Card Body  */}
-                    <Card.Header>{this.props.book.bookTitle}</Card.Header>
+                    <Card.Header><h3>{this.props.book.bookTitle}</h3></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
+                            <h5>Synopsis of Book</h5>
                             <p>{this.props.book.synopsis}</p>
+                            <h5>Genre of Book</h5>
                             <p>{this.props.book.genre}</p>
+                            <h5>Lent Out </h5>
+                            <p>{this.props.book.lent}</p>
                             <footer className="blockquote-footer">
-                                {this.props.book.author}
+                                <h6>Author</h6>
+                                {this.props.book.author} 
                             </footer>
                         </blockquote>
                     </Card.Body>

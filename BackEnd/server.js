@@ -43,7 +43,8 @@ var bookSchema = new Schema({
     author: String,
     bookTitle: String,
     synopsis: String,
-    genre: String
+    genre: String,
+    lent: String
 });
 
 var BookModel = mongoose.model("book", bookSchema);
@@ -56,29 +57,10 @@ app.get('/', (req, res) => {
 //Route to API Books - http://localhost:4000/api/books
 app.get('/api/books', (req, res) => {
 
-    // const mybooks = [
-    //   {
-    //     "BookTitle": "A Discovery of Witches",
-    //   "Synopsis": "Diana Bishop meets Matthew DeClairemont",
-    // "Author": "Debroah Harkness",
-    // "Genre": "Fantasy"
-    // },
-    //{
-    //  "BookTitle": "Shadow of Night",
-    // "Synopsis": "Diana Bishop and Matthew DeClairemont return to 1590",
-    // "Author": "Debroah Harkness",
-    // "Genre": "Fantasy"
-    //    }
-    // ];
-
     //Returns the contents of the Movies in Mongo DB Server
     BookModel.find((err, data) => {
-        res.json(data);
+        res.status(200).json(data);
     })
-
-    // res.status(200).json({
-    //   message: "Everything is Running",
-    // books:mybooks});
 })
 
 //http://localhost:4000/api/books/:id (eg: 5fb3b569bf9ca46d6c4c3dd4)
@@ -92,12 +74,12 @@ app.get('/api/books/:id', (req, res) => {
 })
 
 //http://localhost:4000/api/books/:id - Pulls ID from URL and Updates Record
-app.put('/api/books/:id', (req, res)=>{
-    console.log("Update Book: "+req.params.id);
+app.put('/api/books/:id', (req, res) => {
+    console.log("Update Book: " + req.params.id);
     console.log(req.body);
 
-    BookModel.findByIdAndUpdate(req.params.id, req.body, {new:true},
-        (err,data)=>{
+    BookModel.findByIdAndUpdate(req.params.id, req.body, { new: true },
+        (err, data) => {
             res.send(data);
         })
 
@@ -105,11 +87,11 @@ app.put('/api/books/:id', (req, res)=>{
 })
 
 //Adding a Delete Function 
-app.delete('/api/books/:id', (req, res)=>{
-    console.log("Delete Book: "+req.params.id);
+app.delete('/api/books/:id', (req, res) => {
+    console.log("Delete Book: " + req.params.id);
 
     //Finds Record to then Delete
-    BookModel.findByIdAndDelete(req.params.id, (err, data)=>{
+    BookModel.findByIdAndDelete(req.params.id, (err, data) => {
         res.send(data);
     })
 })
@@ -121,20 +103,22 @@ app.post('/api/books', (req, res) => {
     console.log(req.body.synopsis);
     console.log(req.body.author);
     console.log(req.body.genre);
+    console.log(req.body.lent);
 
     //Created info to be added to Mongo DB Server, Name and Value Pairs
     BookModel.create({
         bookTitle: req.body.bookTitle,
         synopsis: req.body.synopsis,
         author: req.body.author,
-        genre: req.body.genre
+        genre: req.body.genre,
+        lent: req.body.lent
     })
     res.send('Book Added');
 })
 
 //Will return build/index.html on any other request then what is requested above
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname+'/../build/index.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
 })
 
 //Server Setup

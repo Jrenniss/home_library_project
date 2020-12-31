@@ -15,13 +15,15 @@ export class UpdateBook extends React.Component {
         this.onChangeUpdateSynopsis = this.onChangeUpdateSynopsis.bind(this);
         this.onChangeUpdateAuthor = this.onChangeUpdateAuthor.bind(this);
         this.onChangeUpdateGenre = this.onChangeUpdateGenre.bind(this);
+        this.onChangeUpdateLent = this.onChangeUpdateLent.bind(this);
 
         //On load values of Title, Year and Poster will be clear
         this.state = {
             BookTitle: '',
             Synopsis: '',
             Author: '',
-            Genre: ''
+            Genre: '',
+            Lent: ''
         }
     }
 
@@ -33,11 +35,12 @@ export class UpdateBook extends React.Component {
         axios.get('http://localhost:4000/api/books/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
-                    _id:response.data._id,
-                    BookTitle:response.data.bookTitle,
-                    Synopsis:response.data.synopsis,
-                    Author:response.data.author,
-                    Genre:response.data.genre
+                    _id: response.data._id,
+                    BookTitle: response.data.bookTitle,
+                    Synopsis: response.data.synopsis,
+                    Author: response.data.author,
+                    Genre: response.data.genre,
+                    Lent: response.data.lent
                 })
             })
             .catch((error) => {
@@ -45,37 +48,45 @@ export class UpdateBook extends React.Component {
             });
     }
 
-    //Updates the Title of the movie
+     //Updates the Title of the Book
     onChangeUpdateBookTitle(t) {
         this.setState({
             BookTitle: t.target.value
         })
     }
 
-    //Updates the Year of the movie
+   //Updates the Synopsis of the Book
     onChangeUpdateSynopsis(s) {
         this.setState({
             Synopsis: s.target.value
         })
     }
 
-    //Updates the Poster of the movie
+    //Updates the Author of the Book
     onChangeUpdateAuthor(a) {
         this.setState({
             Author: a.target.value
         })
     }
 
-    //Updates the Poster of the movie
+    //Updates the Genre of the Book
     onChangeUpdateGenre(g) {
         this.setState({
             Genre: g.target.value
         })
     }
 
-    //Alert displaying Updates 
+    //Updates the Lent state of the Book
+    onChangeUpdateLent(l) {
+        this.setState({
+            Lent: l.target.value
+        });
+    }
+
+    //Button to Submit form to Update Book
     onUpdateSubmit(e) {
-        alert("Book Updated" + this.state.BookTitle + ", " + this.state.Genre + ", " + this.state.Author);
+        //Alert Displaying Addition
+        alert("Book Updated" + this.state.BookTitle + ", " + this.state.Genre + ", " + this.state.Author + ", " + this.state.Lent);
 
         //Sends Title, Year and Poster to the BackEnd Server.js
         const newBook = {
@@ -83,15 +94,18 @@ export class UpdateBook extends React.Component {
             author: this.state.Author,
             genre: this.state.Genre,
             synopsis: this.state.Synopsis,
+            lent: this.state.Lent,
             _id: this.state._id
         }
 
-        //Sends the data to thhe BackEnd with upadtes made
+        //Sends the data to the BackEnd with upadtes made
         axios.put('http://localhost:4000/api/books/' + this.state._id, newBook)
             .then(res => {
                 console.log(res.data)
             })
-            .catch();
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     //Method to display what is within
@@ -123,16 +137,23 @@ export class UpdateBook extends React.Component {
 
                 {/*Edit Book Genre */}
                 <div className="form-group">
-                        <label>Edit Book Genre: </label>
-                        <select class="form-control" id="exampleFormControlSelect1" value={this.state.Genre} onChange={this.onChangeUpdateGenre}>
-                            <option selected>Choose...</option>
-                            <option>Romance</option>
-                            <option>Drama</option>
-                            <option>Sci-Fy</option>
-                            <option>Fantasy</option>
-                            <option>Historical</option>
-                        </select>
-                    </div>
+                    <label>Edit Book Genre: </label>
+                    <select class="form-control" id="exampleFormControlSelect1" value={this.state.Genre} onChange={this.onChangeUpdateGenre}>
+                        <option selected>Choose...</option>
+                        <option>Romance</option>
+                        <option>Drama</option>
+                        <option>Sci-Fy</option>
+                        <option>Fantasy</option>
+                        <option>Historical</option>
+                    </select>
+                </div>
+
+                {/*Edit Lent Out */}
+                <div className="form-group">
+                    <label>Update Lent Out To:</label>
+                    <input type="text" className="form-control" value={this.state.Lent} onChange={this.onChangeUpdateLent}>
+                    </input>
+                </div>
 
                 {/*Button Updating Form Contents to State */}
                 <div>
