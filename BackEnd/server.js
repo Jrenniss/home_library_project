@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 //Route to API Books - http://localhost:4000/api/books
 app.get('/api/books', (req, res) => {
 
-    //Returns the contents of the Movies in Mongo DB Server
+    //Returns the contents of the Books in Mongo DB Server
     BookModel.find((err, data) => {
         res.status(200).json(data);
     })
@@ -72,6 +72,13 @@ app.get('/api/books/:id', (req, res) => {
         res.json(data);
     })
 })
+
+app.get('/search/', (req, res) => {
+    BookModel.findOne({
+        state: req.params.state
+    })
+        .then(data => res.json(data));
+});
 
 //http://localhost:4000/api/books/:id - Pulls ID from URL and Updates Record
 app.put('/api/books/:id', (req, res) => {

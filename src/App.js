@@ -6,6 +6,7 @@ import { Index } from './components/index';
 import { Library } from './components/library';
 import { AddBook } from './components/addBook';
 import { UpdateBook } from './components/updateBook';
+import  SearchPage  from "./components/searchPage";
 //Browser
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //Bootstrap Additions
@@ -25,6 +26,7 @@ class App extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/library">Library</Nav.Link>
               <Nav.Link href="/addBook">Add Book</Nav.Link>
+              <Nav.Link href="/search">Search Library</Nav.Link>
             </Nav>
           </Navbar>
 
@@ -34,6 +36,7 @@ class App extends Component {
             <Route path='/library' component={Library} exact></Route>
             <Route path='/addBook' component={AddBook} exact></Route>
             <Route path='/updateBook/:id' component={UpdateBook} exact></Route>
+            <Route path='/search' component={SearchPage} exact></Route>
           </Switch>
         </div>
       </Router>
