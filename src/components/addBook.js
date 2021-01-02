@@ -1,6 +1,7 @@
 import React from 'react';
 //Sendds Data to the Server
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
 
 
 //Page to add books to the Library
@@ -11,9 +12,10 @@ export class AddBook extends React.Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeBookTitle = this.onChangeBookTitle.bind(this);
-        this.onChangeSynopsus = this.onChangeSynopsus.bind(this);
+        this.onChangeSynopsis = this.onChangeSynopsis.bind(this);
         this.onChangeAuthor = this.onChangeAuthor.bind(this);
         this.onChangeGenre = this.onChangeGenre.bind(this);
+        this.onChangeCoverImg = this.onChangeCoverImg.bind(this);
         this.onChangeLent = this.onChangeLent.bind(this);
 
         //On load values of Title, Year and Poster will be clear
@@ -22,6 +24,7 @@ export class AddBook extends React.Component {
             Synopsis: '',
             Author: '',
             Genre: '',
+            CoverImg: '',
             Lent: ''
         }
     }
@@ -34,7 +37,7 @@ export class AddBook extends React.Component {
     }
 
     //Updates the Synopsis of the Book
-    onChangeSynopsus(s) {
+    onChangeSynopsis(s) {
         this.setState({
             Synopsis: s.target.value
         });
@@ -54,8 +57,15 @@ export class AddBook extends React.Component {
         });
     }
 
+    //Updates the Cover Image of the Book
+    onChangeCoverImg(c) {
+        this.setState({
+            CoverImg: c.target.value
+        });
+    }
+
     //Updates the Lent state of the Book
-    onChangeLent(l){
+    onChangeLent(l) {
         this.setState({
             Lent: l.target.value
         });
@@ -64,13 +74,14 @@ export class AddBook extends React.Component {
     onSubmit(s) {
         s.preventDefault();
         //Alert Displaying Addition
-        alert("Book: " + this.state.BookTitle + ", " + this.state.Author + ", " + this.state.Genre+ ", " +this.state.Lent);
+        alert("Book: " + this.state.BookTitle + ", " + this.state.Author + ", " + this.state.Genre + ", " + this.state.CoverImg);
 
         //Sends BookTitle, Author, Genre, Synopsis and Lent to the BackEnd Server.js
         const newBook = {
             bookTitle: this.state.BookTitle,
             author: this.state.Author,
             genre: this.state.Genre,
+            coverImg: this.state.CoverImg,
             synopsis: this.state.Synopsis,
             lent: this.state.Lent
         }
@@ -89,9 +100,10 @@ export class AddBook extends React.Component {
         return (
             //Contents on display in the Component
             //Form to Add a Book
-            <div className='App'>
+            <div className='AddBook'>
                 <h1>Add Book to Library</h1>
-                <form onSubmit={this.onSubmit}>
+                
+                <form  className="AddForm" onSubmit={this.onSubmit}>
                     {/*Add Book Title*/}
                     <div className="form-group">
                         <label>Add Book Title: </label>
@@ -101,7 +113,7 @@ export class AddBook extends React.Component {
                     {/*Add Book Synopsis*/}
                     <div className="form-group">
                         <label>Add Book Synopsis: </label>
-                        <textarea className='form-control' value={this.state.Synopsis} onChange={this.onChangeSynopsus}></textarea>
+                        <textarea className='form-control' value={this.state.Synopsis} onChange={this.onChangeSynopsis}></textarea>
                     </div>
 
                     {/*Add Book Author*/}
@@ -120,20 +132,29 @@ export class AddBook extends React.Component {
                             <option>Sci-Fy</option>
                             <option>Fantasy</option>
                             <option>Historical</option>
+                            <option>Action</option>
+                            <option>Adventure</option>
                         </select>
+                    </div>
+
+                    {/*Add Book Cover Image*/}
+                    <div className="form-group">
+                        <label>Add Book Cover Image: </label>
+                        <textarea className='form-control' value={this.state.CoverImg} onChange={this.onChangeCoverImg}></textarea>
                     </div>
 
                     {/*Add Lent Out*/}
                     <div className="form-group">
                         <label>Lent Out To: </label>
-                        <input type='text' className='form-control' value={this.state.Lent} onChange={this.onChangeLent} placeholder="In Library"></input>
+                        <input type='text' className='form-control' value={this.state.Lent} onChange={this.onChangeLent} placeholder="Example: In Library"></input>
                     </div>
 
                     {/*Button Adding Form Contents to State */}
                     <div>
-                        <input type="submit" value="Add Book" className="btn btn-primary"></input>
+                        <input type="submit" value="Add Book" className="btn btn-danger btn-lg"></input>
                     </div>
                 </form>
+               
             </div>
         );
     }

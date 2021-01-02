@@ -44,6 +44,7 @@ var bookSchema = new Schema({
     bookTitle: String,
     synopsis: String,
     genre: String,
+    coverImg: String,
     lent: String
 });
 
@@ -110,6 +111,7 @@ app.post('/api/books', (req, res) => {
     console.log(req.body.synopsis);
     console.log(req.body.author);
     console.log(req.body.genre);
+    console.log(req.body.coverImg);
     console.log(req.body.lent);
 
     //Created info to be added to Mongo DB Server, Name and Value Pairs
@@ -118,6 +120,7 @@ app.post('/api/books', (req, res) => {
         synopsis: req.body.synopsis,
         author: req.body.author,
         genre: req.body.genre,
+        genre: req.body.coverImg,
         lent: req.body.lent
     })
     res.send('Book Added');

@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import axois from 'axios';
 //Imported to change the URL and pass ID of current work
 import {Link} from 'react-router-dom';
+//Import Style Sheet
+import '../style/style.css';
 
 export class BookProfile extends React.Component {
 
@@ -35,11 +37,12 @@ export class BookProfile extends React.Component {
         return (
             <div>
                 {/*The content of each bookProfile is desplayed as requested, BookTitle, Author and Genre */}
-                <Card>
+                <Card className="BookCard">
                     {/*Card Holds Title in the Card Header. Year and Poster are held in the Card Body  */}
                     <Card.Header><h3>{this.props.book.bookTitle}</h3></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
+                            <img className="CoverImg" src={this.props.book.coverImg} width="250" height="300"/>
                             <h5>Synopsis of Book</h5>
                             <p>{this.props.book.synopsis}</p>
                             <h5>Genre of Book</h5>

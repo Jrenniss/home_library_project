@@ -1,3 +1,65 @@
+/*Home Page Styling*/
 .jumbotron{
-    background-image: ".../assets/homepic.jpg";
+    background: url(../assets/homepic.jpg) no-repeat center fixed;
+    background-size: cover;
+    
+
 }
+.container{
+    border-radius: 25px;
+    padding: 3%;
+    background-color: rgba(255, 255, 255, 0.822);
+    font-family:  "Comic Sans MS", "Courier New", monospace;
+    font-size: 25px;
+    font-weight: 600;
+    width: auto;
+}
+.container h1{
+    font-size: 35px;
+    font-family:  "Lucida Handwriting", "Courier New", monospace;
+    font-weight: bold;
+    color:rgb(185, 0, 0);
+}
+
+.container a{
+    font-weight: bold;
+    background-color: rgb(129, 10, 10);
+}
+
+/*Library Page Styling*/
+.BookCard h3, h5{
+    font-family:  "Lucida Handwriting", "Courier New", monospace;
+    font-weight: 700;
+}
+
+.Library h1{
+    font-family:  "Lucida Handwriting", "Courier New", monospace;
+    font-weight: bold;
+}
+
+.CoverImg{
+    padding-bottom: 1%;
+}
+
+/*Add Book Page*/
+.AddBook{
+    background: url(../assets/homepic.jpg) no-repeat center fixed;
+    background-size: cover;
+    background-color: rgba(252, 252, 252, 0.514);
+}
+.AddBook h1{
+    font-family:  "Lucida Handwriting", "Courier New", monospace;
+    background-color: rgba(252, 252, 252, 0.514);
+    font-weight: bold;
+    padding-top: 10px;
+}
+.AddForm{
+    background-color: rgba(252, 252, 252, 0.514);
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 5%;
+    font-weight: bold;
+    font-size: larger;
+}
+
+

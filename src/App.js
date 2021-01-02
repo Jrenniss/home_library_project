@@ -19,7 +19,7 @@ class App extends Component {
       <Router>
         <div className="App">
           {/*Navigation Bar present across all components/pages displayed  */}
-          <Navbar bg="dark" variant="dark">
+          <Navbar expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="/">My Home Library</Navbar.Brand>
             <Nav className="mr-auto">
               {/*Links to each Component Page */}

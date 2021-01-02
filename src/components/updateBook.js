@@ -1,7 +1,7 @@
 import React from 'react';
-//Sendds Data to the Server
+//Sends Data to the Server
 import axios from 'axios';
-
+import '../style/style.css';
 //Edit Component
 export class UpdateBook extends React.Component {
 
@@ -15,6 +15,7 @@ export class UpdateBook extends React.Component {
         this.onChangeUpdateSynopsis = this.onChangeUpdateSynopsis.bind(this);
         this.onChangeUpdateAuthor = this.onChangeUpdateAuthor.bind(this);
         this.onChangeUpdateGenre = this.onChangeUpdateGenre.bind(this);
+        this.onChangeUpdateCoverImg = this.onChangeUpdateCoverImg.bind(this);
         this.onChangeUpdateLent = this.onChangeUpdateLent.bind(this);
 
         //On load values of Title, Year and Poster will be clear
@@ -23,6 +24,7 @@ export class UpdateBook extends React.Component {
             Synopsis: '',
             Author: '',
             Genre: '',
+            CoverImg: '',
             Lent: ''
         }
     }
@@ -40,6 +42,7 @@ export class UpdateBook extends React.Component {
                     Synopsis: response.data.synopsis,
                     Author: response.data.author,
                     Genre: response.data.genre,
+                    CoverImg: response.data.coverImg,
                     Lent: response.data.lent
                 })
             })
@@ -48,14 +51,14 @@ export class UpdateBook extends React.Component {
             });
     }
 
-     //Updates the Title of the Book
+    //Updates the Title of the Book
     onChangeUpdateBookTitle(t) {
         this.setState({
             BookTitle: t.target.value
         })
     }
 
-   //Updates the Synopsis of the Book
+    //Updates the Synopsis of the Book
     onChangeUpdateSynopsis(s) {
         this.setState({
             Synopsis: s.target.value
@@ -76,6 +79,13 @@ export class UpdateBook extends React.Component {
         })
     }
 
+    //Updates the Genre of the Book
+    onChangeUpdateCoverImg(c) {
+        this.setState({
+            CoverImg: c.target.value
+        })
+    }
+
     //Updates the Lent state of the Book
     onChangeUpdateLent(l) {
         this.setState({
@@ -86,13 +96,14 @@ export class UpdateBook extends React.Component {
     //Button to Submit form to Update Book
     onUpdateSubmit(e) {
         //Alert Displaying Addition
-        alert("Book Updated" + this.state.BookTitle + ", " + this.state.Genre + ", " + this.state.Author + ", " + this.state.Lent);
+        alert("Book Updated" + this.state.BookTitle + ", " + this.state.Genre + ", " + this.state.Author + ", " + this.state.CoverImg);
 
         //Sends Title, Year and Poster to the BackEnd Server.js
         const newBook = {
             bookTitle: this.state.BookTitle,
             author: this.state.Author,
             genre: this.state.Genre,
+            coverImg: this.state.CoverImg,
             synopsis: this.state.Synopsis,
             lent: this.state.Lent,
             _id: this.state._id
@@ -113,7 +124,9 @@ export class UpdateBook extends React.Component {
         return (
             //Contents on display in the Component
             //Form to Update a Book
-            <form onSubmit={this.onUpdateSubmit}>
+            <div className='AddBook'>
+                <h1>Upadte Book</h1>
+            <form className="AddForm" onSubmit={this.onUpdateSubmit}>
                 {/*Edit Book Title */}
                 <div className="form-group">
                     <label>Update Book Title:</label>
@@ -148,6 +161,13 @@ export class UpdateBook extends React.Component {
                     </select>
                 </div>
 
+                {/*Edit Book Cover Image */}
+                <div className="form-group">
+                    <label>Update Book Cover Image:</label>
+                    <textarea type="text" className="form-control" value={this.state.CoverImg} onChange={this.onChangeUpdateCoverImg}>
+                    </textarea>
+                </div>
+
                 {/*Edit Lent Out */}
                 <div className="form-group">
                     <label>Update Lent Out To:</label>
@@ -160,7 +180,7 @@ export class UpdateBook extends React.Component {
                     <input type="submit" value="Update Book" className="btn btn-primary"></input>
                 </div>
             </form>
-
+            </div>
 
         );
     }
