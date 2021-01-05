@@ -42,7 +42,7 @@ export class BookProfile extends React.Component {
                     <Card.Header><h3>{this.props.book.bookTitle}</h3></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
-                            <img className="CoverImg" src={this.props.book.coverImg} width="250" height="300"/>
+                            <img className="CoverImg" src={this.props.book.coverImg} width="250" height="300" alt="Book Cover"/>
                             <h5>Synopsis of Book</h5>
                             <p>{this.props.book.synopsis}</p>
                             <h5>Genre of Book</h5>
@@ -56,9 +56,9 @@ export class BookProfile extends React.Component {
                         </blockquote>
                     </Card.Body>
                     {/*Button to Delete Record*/}
-                    <Button variant="danger" onClick={this.DeleteBook}>Delete</Button>
+                    <Button className="bookBtn" variant="danger" onClick={this.DeleteBook}>Delete</Button>
                     {/*Button to Upadte Record*/}
-                    <Link to={"/updateBook/" + this.props.book._id} className="btn btn-primary">Update</Link>
+                    <Link className="bookBtn" to={"/updateBook/" + this.props.book._id} className="btn btn-dark">Update</Link>
                 </Card>
 
             </div>

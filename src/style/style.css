@@ -25,6 +25,9 @@
     font-weight: bold;
     background-color: rgb(129, 10, 10);
 }
+.footer{
+    background-color: rgb(39, 39, 39);
+}
 
 /*Library Page Styling*/
 .BookCard h3, h5{
@@ -40,6 +43,9 @@
 .CoverImg{
     padding-bottom: 1%;
 }
+
+/*Book Profile*/
+
 
 /*Add Book Page*/
 .AddBook{

@@ -19,14 +19,11 @@ export class Index extends React.Component {
                             Where you can track all the Books in your Library.
                         </p>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <Button href="/library" variant="danger" size="lg">My Library</Button>
                             </div>
-                            <div class="col-sm-4">
-                            <Button href="/addBook" variant="danger" size="lg">Add to Library</Button>
-                            </div>
-                            <div class="col-sm-4">
-                            <Button href="/search" variant="danger" size="lg">Search Library</Button>
+                            <div class="col-sm-6">
+                                <Button href="/addBook" variant="danger" size="lg">Add to Library</Button>
                             </div>
                         </div>
                     </Container>

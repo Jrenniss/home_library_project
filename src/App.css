@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.footer{
+  font-family:  "Lucida Handwriting", "Courier New", monospace;
+  font-weight: 700;
+  color: azure;
+  text-align: center;
+}

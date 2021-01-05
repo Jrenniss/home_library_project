@@ -74,13 +74,6 @@ app.get('/api/books/:id', (req, res) => {
     })
 })
 
-app.get('/search/', (req, res) => {
-    BookModel.findOne({
-        state: req.params.state
-    })
-        .then(data => res.json(data));
-});
-
 //http://localhost:4000/api/books/:id - Pulls ID from URL and Updates Record
 app.put('/api/books/:id', (req, res) => {
     console.log("Update Book: " + req.params.id);
