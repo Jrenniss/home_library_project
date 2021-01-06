@@ -18,7 +18,7 @@ export class AddBook extends React.Component {
         this.onChangeCoverImg = this.onChangeCoverImg.bind(this);
         this.onChangeLent = this.onChangeLent.bind(this);
 
-        //On load values of Title, Year and Poster will be clear
+        //On load the different Book values will be clear
         this.state = {
             BookTitle: '',
             Synopsis: '',
@@ -134,6 +134,9 @@ export class AddBook extends React.Component {
                             <option>Historical</option>
                             <option>Action</option>
                             <option>Adventure</option>
+                            <option>Biography</option>
+                            <option>Childrens</option>
+                            <option>Teen Fiction</option>
                         </select>
                     </div>
 
