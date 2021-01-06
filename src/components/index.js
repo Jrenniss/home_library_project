@@ -14,16 +14,19 @@ export class Index extends React.Component {
             <div className="App">
                 <Jumbotron>
                     <Container>
-                        <h1>Welcome to the Home Library</h1>
+                        <h1>Welcome </h1>
+                        <h3>to the</h3>
+                        <h1> Home Library</h1>
+                        <hr></hr>
                         <p>
                             Where you can track all the Books in your Library.
                         </p>
                         <div class="row">
                             <div class="col-sm-6">
-                                <Button href="/library" variant="danger" size="lg">My Library</Button>
+                                <Button className="homebtn" href="/library" variant="danger" size="lg">My Library</Button>
                             </div>
                             <div class="col-sm-6">
-                                <Button href="/addBook" variant="danger" size="lg">Add to Library</Button>
+                                <Button className="homebtn" href="/addBook" variant="danger" size="lg">Add to Library</Button>
                             </div>
                         </div>
                     </Container>

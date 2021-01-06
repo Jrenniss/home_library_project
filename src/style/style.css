@@ -2,6 +2,8 @@
 .jumbotron{
     background: url(../assets/homepic.jpg) no-repeat center fixed;
     background-size: cover;
+    background-color: rgba(51, 50, 50, 0.801);
+    
     
 
 }
@@ -13,9 +15,11 @@
     font-size: 25px;
     font-weight: 600;
     width: auto;
+    padding-top: 11%;
+    padding-bottom: 11%;
 }
 .container h1{
-    font-size: 35px;
+    font-size: 55px;
     font-family:  "Lucida Handwriting", "Courier New", monospace;
     font-weight: bold;
     color:rgb(185, 0, 0);
@@ -25,9 +29,9 @@
     font-weight: bold;
     background-color: rgb(129, 10, 10);
 }
-.footer{
-    background-color: rgb(39, 39, 39);
-}
+
+
+
 
 /*Library Page Styling*/
 .BookCard h3, h5{

@@ -38,19 +38,6 @@ class App extends Component {
             <Route path='/updateBook/:id' component={UpdateBook} exact></Route>
           </Switch>
         </div>
-
-       
-        <div className="footer">
-        <h3>Home Library</h3>
-          <div class="col-sm-3">
-            
-          
-          </div>
-          <div class="col-sm-3">
-
-          </div>
-        </div>
-        
       </Router>
     );
   }
