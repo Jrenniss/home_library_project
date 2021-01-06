@@ -177,7 +177,7 @@ export class UpdateBook extends React.Component {
 
                 {/*Button Updating Form Contents to State */}
                 <div>
-                    <input type="submit" value="Update Book" className="btn btn-primary"></input>
+                    <input type="submit" value="Update Book" className="btn btn-danger btn-lg"></input>
                 </div>
             </form>
             </div>

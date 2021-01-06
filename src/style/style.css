@@ -37,11 +37,18 @@
 .BookCard h3, h5{
     font-family:  "Lucida Handwriting", "Courier New", monospace;
     font-weight: 700;
+    
 }
+
 
 .Library h1{
     font-family:  "Lucida Handwriting", "Courier New", monospace;
+    font-size: 55px;
     font-weight: bold;
+    background-color: rgb(129, 10, 10);
+    color: rgb(255, 255, 255);
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .CoverImg{
@@ -60,8 +67,10 @@
 .AddBook h1{
     font-family:  "Lucida Handwriting", "Courier New", monospace;
     background-color: rgba(252, 252, 252, 0.514);
+    font-size: 45px;
     font-weight: bold;
     padding-top: 10px;
+    color: rgb(129, 10, 10);
 }
 .AddForm{
     background-color: rgba(252, 252, 252, 0.514);
@@ -69,7 +78,7 @@
     padding-right: 3%;
     padding-bottom: 5%;
     font-weight: bold;
-    font-size: larger;
+    font-size: 23px;
 }
 
 

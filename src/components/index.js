@@ -16,7 +16,7 @@ export class Index extends React.Component {
                     <Container>
                         <h1>Welcome </h1>
                         <h3>to the</h3>
-                        <h1> Home Library</h1>
+                        <h1>My Home Library</h1>
                         <hr></hr>
                         <p>
                             Where you can track all the Books in your Library.

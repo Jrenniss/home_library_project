@@ -39,7 +39,7 @@ export class BookProfile extends React.Component {
                 {/*The content of each bookProfile is desplayed as requested, BookTitle, Author and Genre */}
                 <Card className="BookCard">
                     {/*Card Holds Title in the Card Header. Year and Poster are held in the Card Body  */}
-                    <Card.Header><h3>{this.props.book.bookTitle}</h3></Card.Header>
+                    <Card.Header className="bTitle"><h3>{this.props.book.bookTitle}</h3></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <img className="CoverImg" src={this.props.book.coverImg} width="250" height="300" alt="Book Cover"/>

@@ -140,13 +140,13 @@ export class AddBook extends React.Component {
                     {/*Add Book Cover Image*/}
                     <div className="form-group">
                         <label>Add Book Cover Image: </label>
-                        <textarea className='form-control' value={this.state.CoverImg} onChange={this.onChangeCoverImg}></textarea>
+                        <textarea type="text" className='form-control' value={this.state.CoverImg} onChange={this.onChangeCoverImg} ></textarea>
                     </div>
 
                     {/*Add Lent Out*/}
                     <div className="form-group">
                         <label>Lent Out To: </label>
-                        <input type='text' className='form-control' value={this.state.Lent} onChange={this.onChangeLent} placeholder="Example: In Library"></input>
+                        <input type='text' className='form-control' value={this.state.Lent} onChange={this.onChangeLent} placeholder="Example: In Library or Neighbour "></input>
                     </div>
 
                     {/*Button Adding Form Contents to State */}

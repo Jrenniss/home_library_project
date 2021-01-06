@@ -67,19 +67,20 @@ export class Library extends React.Component {
     //Method to display what is within
     render() {
         const filteredBooks = this.state.books.filter(book => {
-            return book.bookTitle.toLowerCase().includes(this.state.searchValue.toLowerCase())
+            return book.bookTitle.toLowerCase().includes(this.state.searchValue.toLowerCase()) +  book.author.toLowerCase().includes(this.state.searchValue.toLowerCase())
         })
         return (
             //Contents on display in the Component
             <div className="Library">
+                
                 <h1>My Home Library</h1>
-                <hr></hr>
+                
                 <SearchField
                     value={this.state.searchValue}
                     placeholder= "Search...."
-                    OnSearchClick={this.OnSearchClick}
+                    //OnSearch={this.OnSearchClick}
                     onEnter={this.OnSearchClick}
-                />
+                ></SearchField>
                 <hr></hr>
                  {/*Books Component Diaplay and Reload*/}
                 <Books books={filteredBooks} ReloadData={this.ReloadData}></Books>
